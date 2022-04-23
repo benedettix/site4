@@ -1,0 +1,124 @@
+.intro-header {
+  position: relative;
+  margin-bottom: 40px;
+  h2 {
+    font-size: $smallSlider;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    &::before,
+    &::after {
+      display: none;
+    }
+    span {
+      font-size: $bigSlider;
+      color: #ffce67;
+      display: block;
+    }
+  }
+  #intro-slider {
+    display: none;
+  }
+  .carousel-indicators [data-bs-target] {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: 7px; /* change width */
+    height: 7px; /* change height */
+    padding: 0;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    transition: opacity 0.6s ease;
+    border-radius: 100%; // /* add border-radius */
+  }
+  .carousel-control-next-icon {
+    background-image: url("/img/arrow-right.png");
+    width: 26px;
+    height: 48px;
+    right: 20%;
+    position: absolute;
+  }
+  .carousel-control-prev-icon {
+    background-image: url("/img/arrow-left.png");
+    width: 26px;
+    height: 48px;
+    left: 20%;
+    position: absolute;
+  }
+}
+.frame {
+  position: relative;
+  &::before,
+  &::after {
+    content: " ";
+    position: absolute;
+    width: 130px;
+    height: 70px;
+    display: block;
+    border: 3px solid #fff;
+    z-index: 5;
+  }
+  &::before {
+    border-bottom: none;
+    border-right: none;
+    top: 10px;
+    left: 10px;
+  }
+  &::after {
+    border-top: none;
+    border-left: none;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .intro-header {
+    > img {
+      display: none;
+    }
+    #intro-slider {
+      display: block;
+      .carousel-indicators {
+        bottom: 0;
+      }
+    }
+    h2 {
+      padding: 30px 0;
+      width: 620px;
+      background-color: transparentize(#000000, $amount: 0.7);
+      &::before,
+      &::after {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .intro-header {
+    margin-bottom: 70px;
+    h2 {
+      font-size: 30px;
+      span {
+        font-size: 96px;
+      }
+    }
+    #intro-slider {
+      .carousel-indicators {
+        bottom: 10px;
+      }
+    }
+  }
+}
